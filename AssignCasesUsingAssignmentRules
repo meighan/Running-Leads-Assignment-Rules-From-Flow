@@ -1,0 +1,12 @@
+public class AssignCasesUsingAssignmentRules
+{
+    @InvocableMethod
+    public static void CaseAssign(List<Id> LeadIds)
+    {
+            Database.DMLOptions dmo = new Database.DMLOptions();
+            dmo.assignmentRuleHeader.useDefaultRule= true;          
+            Case Cases=[select id from Case where case.id in :CaseIds];
+            Cases.setOptions(dmo);
+            update Cases;
+   }
+}
